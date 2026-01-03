@@ -1,0 +1,509 @@
+{
+  "title": "Flutter Beginner Notes",
+  "version": "1.1",
+  "description": "Complete structured notes for Flutter beginners from scratch. Expanded with more details, examples, and topics. Designed for offline use in Flutter notes app.",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Introduction to Flutter",
+      "content": "Flutter is Google's open-source UI toolkit for building natively compiled applications for mobile (iOS, Android), web, desktop (Windows, macOS, Linux), and embedded devices from a single codebase. Everything in Flutter is a widget, forming a tree structure. Flutter uses the Dart programming language and renders UI using its own high-performance Skia graphics engine.",
+      "subsections": [
+        {
+          "title": "Key Features",
+          "points": [
+            "Hot Reload: See changes instantly without restarting the app",
+            "Single codebase for multiple platforms",
+            "Rich, customizable Material Design and Cupertino widgets",
+            "High performance: Compiles to native ARM code",
+            "Expressive and flexible UI with widget composition",
+            "Fast rendering with Skia engine",
+            "Null safety in Dart for fewer runtime errors"
+          ]
+        },
+        {
+          "title": "Advantages",
+          "points": [
+            "Rapid development with hot reload",
+            "Beautiful, consistent UI across platforms",
+            "Native-like performance",
+            "Large and growing community with many packages on pub.dev",
+            "Cost-effective: One team for multiple platforms",
+            "Excellent documentation and tools"
+          ]
+        },
+        {
+          "title": "Flutter Architecture",
+          "points": [
+            "Widget Tree: UI described as immutable widgets",
+            "Element Tree: Mutable instances managing widgets",
+            "Render Tree: Handles layout, painting, and compositing",
+            "Layers: Framework, Engine (C++), Embedder (platform-specific)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dart Basics",
+      "content": "Dart is a client-optimized, object-oriented programming language with null safety, used by Flutter. It supports both JIT (for development) and AOT (for production) compilation.",
+      "subsections": [
+        {
+          "title": "Variables and Data Types",
+          "code": "var name = 'Flutter'; // Type inference\nString message = 'Hello Dart!';\nint age = 25;\ndouble pi = 3.14;\nbool isActive = true;\nnum number = 10; // Can hold int or double\nList<String> fruits = ['Apple', 'Banana'];\n\n// Null safety\nString? nullableName; // Can be null\nString nonNullable = 'Required';\n\n// Constants\nconst int max = 100; // Compile-time\nfinal String appName = 'MyApp'; // Runtime, set once\nlate String description; // Initialized later",
+          "points": [
+            "Use 'var', 'final', or 'const' appropriately",
+            "Null safety: Variables non-nullable by default",
+            "Dynamic type: Use 'dynamic' for flexibility (avoid if possible)",
+            "Basic types: int, double, String, bool, List, Map"
+          ]
+        },
+        {
+          "title": "Control Flow",
+          "code": "if (age > 18) {\n  print('Adult');\n} else if (age == 18) {\n  print('Just adult');\n} else {\n  print('Minor');\n}\n\nfor (var fruit in fruits) {\n  print(fruit);\n}\n\nwhile (count < 5) {\n  count++;\n}\n\nswitch (status) {\n  case 'active': print('Active'); break;\n  default: print('Unknown');\n}\n\n// Ternary\nString result = age > 18 ? 'Adult' : 'Minor';",
+          "points": [
+            "if/else, switch/case",
+            "Loops: for, for-in, while, do-while",
+            "break, continue",
+            "Assertions: assert(condition, 'message')"
+          ]
+        },
+        {
+          "title": "Functions",
+          "code": "String greet(String name, [String? greeting]) {\n  return '${greeting ?? 'Hello'} $name!';\n}\n\nvoid printWelcome({required String app}) {\n  print('Welcome to $app');\n}\n\n// Arrow function\nint add(int a, int b) => a + b;\n\n// Async function\nFuture<String> fetchData() async {\n  await Future.delayed(Duration(seconds: 1));\n  return 'Data loaded';\n}",
+          "points": [
+            "Positional and named parameters (optional with {})",
+            "Optional parameters: [] for positional, {} for named",
+            "Arrow syntax for concise functions",
+            "Async/await for asynchronous programming (Futures)"
+          ]
+        },
+        {
+          "title": "Collections",
+          "code": "List<String> fruits = ['Apple', 'Banana'];\nfruits.add('Orange');\nprint(fruits[0]);\n\nSet<int> unique = {1, 2, 2}; // {1, 2}\n\nMap<String, int> scores = {'Alice': 95, 'Bob': 87};\nprint(scores['Alice']);\n\n// Iteration\nfruits.forEach((f) => print(f));",
+          "points": [
+            "List: Ordered, allows duplicates",
+            "Set: Unordered, unique items",
+            "Map: Key-value pairs",
+            "Spread operator: [...] and Collection for"
+          ]
+        },
+        {
+          "title": "Classes and OOP",
+          "code": "class Person {\n  String name;\n  int age;\n\n  Person(this.name, this.age);\n\n  void introduce() => print('Hi, I\\'m $name');\n}\n\nclass Student extends Person {\n  String major;\n  Student(String name, int age, this.major) : super(name, age);\n}",
+          "points": [
+            "Classes with constructors, methods, getters/setters",
+            "Inheritance with extends",
+            "Mixins for code reuse",
+            "Abstract classes and interfaces (implicit)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Flutter Setup and First App",
+      "content": "Set up the Flutter SDK and development environment to create and run your first app. Use Android Studio, VS Code, or IntelliJ.",
+      "subsections": [
+        {
+          "title": "Installation Steps",
+          "steps": [
+            "Download Flutter SDK from flutter.dev",
+            "Extract and add flutter/bin to PATH",
+            "Run 'flutter doctor' to diagnose issues",
+            "Install required tools: Android Studio (for Android), Xcode (for iOS on macOS)",
+            "Set up emulators or connect physical devices",
+            "Create project: flutter create my_app",
+            "Run: cd my_app; flutter run"
+          ]
+        },
+        {
+          "title": "Project Structure",
+          "points": [
+            "lib/main.dart: App entry point with main() and runApp()",
+            "pubspec.yaml: Manage dependencies, assets, fonts",
+            "android/, ios/, web/, windows/, etc.: Platform-specific code",
+            "test/: Unit and widget tests",
+            "build/: Generated output files"
+          ]
+        },
+        {
+          "title": "Hello World App",
+          "code": "import 'package:flutter/material.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Hello Flutter',\n      theme: ThemeData(primarySwatch: Colors.blue),\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Hello Flutter')),\n        body: const Center(child: Text('Hello World!', style: TextStyle(fontSize: 24))),\n        floatingActionButton: FloatingActionButton(\n          onPressed: () {},\n          child: const Icon(Icons.add),\n        ),\n      ),\n    );\n  }\n}"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Core Widgets",
+      "content": "Everything in Flutter is a widget: immutable descriptions of UI parts. Widgets are composed into a tree.",
+      "subsections": [
+        {
+          "title": "Essential Widgets",
+          "widgets": [
+            {"name": "Scaffold", "desc": "Implements Material Design layout with AppBar, body, Drawer, BottomNavigationBar, FAB"},
+            {"name": "AppBar", "desc": "Top bar with title, leading icon, actions"},
+            {"name": "Text", "desc": "Displays styled text; use TextStyle for font, color, etc."},
+            {"name": "Container", "desc": "Box with decoration (color, border), padding, margin, alignment"},
+            {"name": "Row/Column", "desc": "Linear layouts: Row horizontal, Column vertical"},
+            {"name": "Center", "desc": "Centers its child in available space"},
+            {"name": "Padding", "desc": "Adds space around child"},
+            {"name": "SizedBox", "desc": "Fixed size box or spacer"},
+            {"name": "Image", "desc": "Displays images from asset, network, file"},
+            {"name": "Icon", "desc": "Displays Material icons"}
+          ]
+        },
+        {
+          "title": "Stateless vs Stateful",
+          "points": [
+            "StatelessWidget: Immutable, rebuilds when parent changes",
+            "StatefulWidget: Mutable state, use setState() to trigger rebuild",
+            "Prefer Stateless for performance",
+            "State lives in separate State class"
+          ],
+          "code": "// Stateful Counter\nclass Counter extends StatefulWidget {\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int count = 0;\n\n  void increment() => setState(() => count++);\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: [\n        Text('$count', style: TextStyle(fontSize: 32)),\n        ElevatedButton(onPressed: increment, child: Text('Increment')),\n      ],\n    );\n  }\n}"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Layout Widgets",
+      "content": "Compose complex UIs by nesting layout widgets. Flutter uses constraint-based layout.",
+      "subsections": [
+        {
+          "title": "Linear Layouts",
+          "points": [
+            "Row: Main axis horizontal, Cross vertical",
+            "Column: Main axis vertical, Cross horizontal",
+            "mainAxisAlignment: Start, Center, SpaceBetween, etc.",
+            "crossAxisAlignment: Stretch, Center, etc.",
+            "Expanded/Flexible: Take available space proportionally",
+            "Spacer: Flexible with flex=1"
+          ],
+          "code": "Row(\n  mainAxisAlignment: MainAxisAlignment.spaceEvenly,\n  children: [Text('Left'), Expanded(child: Center(child: Text('Middle'))), Text('Right')],\n)"
+        },
+        {
+          "title": "Stack and Positioned",
+          "desc": "Stack overlays children; Positioned controls position (top, left, etc.) for absolute layout.",
+          "code": "Stack(\n  children: [\n    Container(color: Colors.blue, height: 200),\n    Positioned(top: 50, left: 50, child: Text('Overlay')),\n  ],\n)"
+        },
+        {
+          "title": "ListView and GridView",
+          "code": "ListView.builder(\n  itemCount: items.length,\n  itemBuilder: (context, index) {\n    return ListTile(\n      leading: Icon(Icons.person),\n      title: Text(items[index]),\n      trailing: Icon(Icons.arrow_forward),\n    );\n  },\n)\n\nGridView.count(\n  crossAxisCount: 2,\n  children: List.generate(10, (i) => Card(child: Center(child: Text('Item $i')))),\n)",
+          "points": [
+            "ListView: Vertical/horizontal scrollable list",
+            "GridView: 2D grid",
+            "Use .builder() or .separated() for efficiency with large data",
+            "Sliver variants for custom scrolling"
+          ]
+        },
+        {
+          "title": "Other Layouts",
+          "points": [
+            "Wrap: Flow layout for chips/tags",
+            "Flex/Expanded: For responsive sizing",
+            "Align: Position child within itself"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Input and Interaction",
+      "content": "Capture user input and handle gestures for interactive apps.",
+      "subsections": [
+        {
+          "title": "TextField",
+          "code": "TextEditingController _controller = TextEditingController();\n\nTextField(\n  controller: _controller,\n  decoration: InputDecoration(\n    labelText: 'Enter name',\n    border: OutlineInputBorder(),\n    hintText: 'Your name',\n  ),\n  onChanged: (value) => print(value),\n  keyboardType: TextInputType.emailAddress,\n)",
+          "points": [
+            "Use TextEditingController to read/write value",
+            "InputDecoration for labels, icons, errors",
+            "Validators with Form and GlobalKey<FormState>",
+            "obscureText for passwords"
+          ]
+        },
+        {
+          "title": "Buttons",
+          "points": [
+            "ElevatedButton: Filled with elevation",
+            "TextButton: Flat text",
+            "OutlinedButton: Border outline",
+            "IconButton: Icon only",
+            "FloatingActionButton: Circular FAB"
+          ],
+          "code": "ElevatedButton(onPressed: () {}, child: Text('Submit'))"
+        },
+        {
+          "title": "Gestures",
+          "points": [
+            "GestureDetector: onTap, onDoubleTap, onLongPress, etc.",
+            "InkWell: GestureDetector with Material ripple effect",
+            "Draggable and DragTarget for drag-drop"
+          ]
+        },
+        {
+          "title": "Other Inputs",
+          "points": [
+            "Checkbox, Radio, Switch",
+            "Slider, RangeSlider",
+            "DropdownButton, PopupMenuButton"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Navigation",
+      "content": "Manage multiple screens and route between them.",
+      "subsections": [
+        {
+          "title": "Basic Navigation",
+          "code": "Navigator.push(\n  context,\n  MaterialPageRoute(builder: (_) => SecondScreen(data: 'Hello')),\n);\n\n// Pass data back\nNavigator.pop(context, 'Result');\n\n// Replace\nNavigator.pushReplacement(context, MaterialPageRoute(builder: (_) => NewScreen()));",
+          "points": [
+            "Navigator stack: push/pop",
+            "pushNamed for named routes",
+            "pushAndRemoveUntil to clear stack"
+          ]
+        },
+        {
+          "title": "Named Routes",
+          "code": "MaterialApp(\n  initialRoute: '/',\n  routes: {\n    '/': (_) => HomeScreen(),\n    '/details': (_) => DetailsScreen(),\n  },\n  onGenerateRoute: (settings) {\n    if (settings.name == '/dynamic') {\n      return MaterialPageRoute(builder: (_) => DynamicScreen(settings.arguments));\n    }\n  },\n)\n\nNavigator.pushNamed(context, '/details', arguments: 'Data');",
+          "points": [
+            "Define static routes in MaterialApp",
+            "onGenerateRoute for dynamic or guarded routes",
+            "Arguments passed via settings.arguments"
+          ]
+        },
+        {
+          "title": "Bottom Navigation",
+          "points": [
+            "Use Scaffold with bottomNavigationBar",
+            "Persistent state with IndexedStack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "State Management Basics",
+      "content": "Handle data changes and rebuild UI efficiently.",
+      "subsections": [
+        {
+          "title": "setState",
+          "desc": "Local state management: Call setState() to rebuild the widget subtree. Suitable for simple, local state."
+        },
+        {
+          "title": "InheritedWidget / Provider Intro",
+          "points": [
+            "For app-wide state, use packages like Provider",
+            "Avoid setState for complex apps"
+          ]
+        },
+        {
+          "title": "When to Use Advanced",
+          "points": [
+            "Small apps: setState",
+            "Medium: Provider or Riverpod",
+            "Large: Bloc, Redux, or GetX",
+            "Consider performance and scalability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Next Steps",
+      "content": "Build projects and explore advanced features.",
+      "subsections": [
+        {
+          "title": "Practice Projects",
+          "points": [
+            "Counter app with state",
+            "Todo list with local storage",
+            "Weather app with API calls",
+            "Chat app with Firebase",
+            "E-commerce UI clone"
+          ]
+        },
+        {
+          "title": "Advanced Topics",
+          "points": [
+            "Animations: Implicit (AnimatedContainer), Explicit (AnimationController)",
+            "Networking: http or dio package for API calls",
+            "JSON parsing: dart:convert or freezed",
+            "Local storage: shared_preferences, hive, sqflite",
+            "Firebase: Authentication, Firestore, Cloud Messaging",
+            "State management: Provider, Riverpod, Bloc",
+            "Themes and dark mode",
+            "Internationalization (intl package)",
+            "Testing: Unit, Widget, Integration",
+            "Publishing to stores"
+          ]
+        },
+        {
+          "title": "Resources",
+          "points": [
+            "Official docs: docs.flutter.dev",
+            "Flutter YouTube channel",
+            "Codelabs: codelabs.developers.google.com/flutter",
+            "Pub.dev for packages",
+            "Flutter Awesome lists",
+            "Community: Reddit r/FlutterDev, Discord"
+          ]
+        }
+      ]
+    },
+
+    {
+  "id": 10,
+  "title": "State Management in Depth",
+  "content": "State management is crucial for building scalable Flutter apps. It handles how data flows and updates UI efficiently. Choose based on app complexity: simple → setState/Provider, medium → Riverpod/GetX, complex → Bloc.",
+  "subsections": [
+    {
+      "title": "Why State Management?",
+      "points": [
+        "setState works for local state but causes unnecessary rebuilds in larger apps",
+        "Need separation of business logic from UI",
+        "Share state across widgets without prop drilling",
+        "Handle async operations, error states, loading cleanly",
+        "Testability and maintainability"
+      ]
+    },
+    {
+      "title": "Provider (Official Recommendation for Beginners)",
+      "desc": "Provider is a wrapper around InheritedWidget. Simple, lightweight, and officially recommended. Great for dependency injection and basic state sharing.",
+      "points": [
+        "Add dependency: flutter pub add provider",
+        "Types: Provider, ChangeNotifierProvider, FutureProvider, StreamProvider",
+        "ChangeNotifier: Class that extends ChangeNotifier and calls notifyListeners()",
+        "Consumer/Selector for selective rebuilds",
+        "MultiProvider for multiple providers"
+      ],
+      "code": "// Model\nclass Counter extends ChangeNotifier {\n  int _count = 0;\n  int get count => _count;\n\n  void increment() {\n    _count++;\n    notifyListeners();\n  }\n}\n\n// In main.dart\nvoid main() => runApp(\n  ChangeNotifierProvider(create: (_) => Counter(), child: MyApp()),\n);\n\n// In widget\nclass CounterText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text('${context.watch<Counter>().count}');\n  }\n}\n\n// Or with Consumer\nConsumer<Counter>(builder: (_, counter, __) => Text('${counter.count}'))"
+    },
+    {
+      "title": "Riverpod (Modern Provider Evolution)",
+      "desc": "Riverpod is a rewrite of Provider without InheritedWidget dependency. More flexible, testable, and compile-safe. No need for BuildContext to access providers.",
+      "points": [
+        "Add: flutter pub add flutter_riverpod (or riverpod for non-Flutter)",
+        "Providers are global, declared outside build method",
+        "Types: Provider, StateProvider, StateNotifierProvider, FutureProvider, StreamProvider",
+        "StateNotifier: Preferred for mutable state",
+        "ref.watch, ref.read, ref.listen",
+        "Modifiers: .autoDispose, .family for parameters"
+      ],
+      "code": "// Provider declaration (global)\nfinal counterProvider = StateNotifierProvider<CounterNotifier, int>((ref) => CounterNotifier());\n\nclass CounterNotifier extends StateNotifier<int> {\n  CounterNotifier() : super(0);\n\n  void increment() => state++;\n}\n\n// In main.dart\nvoid main() => runApp(ProviderScope(child: MyApp()));\n\n// In widget\nclass CounterText extends ConsumerWidget {\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n    final count = ref.watch(counterProvider);\n    return Text('$count');\n  }\n}\n\n// Button\nElevatedButton(onPressed: () => ref.read(counterProvider.notifier).increment(), child: Text('Add'))"
+    },
+    {
+      "title": "Bloc (Business Logic Component)",
+      "desc": "Bloc uses streams and events for strict separation of UI and logic. Based on reactive programming. Excellent for complex apps with clear event-driven flow.",
+      "points": [
+        "Add: flutter pub add flutter_bloc bloc",
+        "Core concepts: Events (input), States (output), Bloc (processes events → states)",
+        "Use Equatable for state comparison",
+        "BlocProvider, BlocBuilder, BlocListener, BlocConsumer",
+        "Repository pattern often used with Bloc",
+        "Great for testing and debugging"
+      ],
+      "code": "// Event\nabstract class CounterEvent {}\nclass Increment extends CounterEvent {}\n\n// State\nclass CounterState { final int count; CounterState(this.count); }\n\n// Bloc\nclass CounterBloc extends Bloc<CounterEvent, CounterState> {\n  CounterBloc() : super(CounterState(0)) {\n    on<Increment>((event, emit) => emit(CounterState(state.count + 1)));\n  }\n}\n\n// In widget\nBlocBuilder<CounterBloc, CounterState>(\n  builder: (context, state) => Text('${state.count}'),\n)\n\n// Dispatch event\ncontext.read<CounterBloc>().add(Increment());"
+    },
+    {
+      "title": "GetX (All-in-One Solution)",
+      "desc": "GetX is a lightweight, productive state management + route + dependency injection solution. Very simple syntax, high performance, minimal boilerplate.",
+      "points": [
+        "Add: flutter pub add get",
+        "Features: Obx reactive state, GetBuilder, GetX controller",
+        "Rx types: .rx for observables (RxInt, RxString)",
+        ".obs extension for any variable",
+        "Get.put() for dependency injection",
+        "Get.to() for navigation",
+        "No BuildContext needed"
+      ],
+      "code": "// Controller\nclass CounterController extends GetxController {\n  var count = 0.obs; // Reactive\n\n  void increment() => count++;\n}\n\n// In main (optional)\nGet.put(CounterController());\n\n// In widget\nclass CounterText extends StatelessWidget {\n  final controller = Get.find<CounterController>();\n\n  @override\n  Widget build(BuildContext context) {\n    return Obx(() => Text('${controller.count.value}'));\n  }\n}\n\n// Or shorter with GetX\nGetX<CounterController>(builder: (c) => Text('${c.count.value}'))\n\n// Button\nElevatedButton(onPressed: controller.increment, child: Text('Add'))"
+    },
+    {
+      "title": "Comparison and When to Use",
+      "points": [
+        "Provider: Simple apps, learning state management, dependency injection",
+        "Riverpod: Modern apps, need compile-safety, no context dependency, testing",
+        "Bloc: Complex event-driven apps, large teams, strict architecture",
+        "GetX: Rapid development, small-medium apps, want navigation + state + DI in one",
+        "Start with Provider/Riverpod (most future-proof)",
+        "Avoid mixing multiple solutions in one app"
+      ]
+    }
+  ]
+},
+{
+  "id": 11,
+  "title": "Local Storage Solutions",
+  "content": "Local storage allows your app to persist data on the device. Choose based on data type, size, complexity, and security needs. Common options: SharedPreferences (simple key-value), Hive (fast NoSQL), SQflite/SQLite (relational), and FlutterSecureStorage (encrypted key-value).",
+  "subsections": [
+    {
+      "title": "Overview and Comparison",
+      "points": [
+        "SharedPreferences: Simple key-value pairs (strings, ints, bools, lists). Ideal for settings, tokens, flags.",
+        "Hive: Lightweight, fast NoSQL database. Stores Dart objects directly. Great for medium-complex data.",
+        "SQflite: SQLite wrapper for relational data. Use for complex queries, large datasets, relationships.",
+        "FlutterSecureStorage: Encrypted key-value store using Keychain (iOS) / Keystore (Android). For sensitive data like tokens, passwords.",
+        "Isar: Modern alternative to Hive (faster queries), but not covered here for simplicity."
+      ]
+    },
+    {
+      "title": "SharedPreferences",
+      "desc": "Lightweight key-value storage for primitive data. Asynchronous API.",
+      "points": [
+        "Add dependency: flutter pub add shared_preferences",
+        "Data types: String, int, double, bool, StringList",
+        "Data persists across app restarts",
+        "Not suitable for large data or complex objects"
+      ],
+      "code": "import 'package:shared_preferences/shared_preferences.dart';\n\n// Save data\nFuture<void> saveData() async {\n  final prefs = await SharedPreferences.getInstance();\n  await prefs.setString('username', 'John');\n  await prefs.setInt('age', 30);\n  await prefs.setBool('isLoggedIn', true);\n  await prefs.setStringList('favorites', ['Apple', 'Banana']);\n}\n\n// Read data\nFuture<void> readData() async {\n  final prefs = await SharedPreferences.getInstance();\n  String? username = prefs.getString('username');\n  int age = prefs.getInt('age') ?? 0;\n  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;\n}\n\n// Remove\nawait prefs.remove('username');\nawait prefs.clear(); // Clear all"
+    },
+    {
+      "title": "Hive",
+      "desc": "High-performance NoSQL database written in pure Dart. Stores objects directly with boxes (like collections). Supports encryption.",
+      "points": [
+        "Add: flutter pub add hive hive_flutter",
+        "Generate adapters with build_runner for custom objects",
+        "Very fast reads/writes",
+        "Supports lists, maps, lazy loading",
+        "Great for offline-first apps, todo lists, cached API data"
+      ],
+      "code": "// Initialize in main\nimport 'package:hive_flutter/hive_flutter.dart';\nawait Hive.initFlutter();\nawait Hive.openBox('settingsBox');\n\n// For custom objects\ngenerateAdapter(); // @HiveType, @HiveField\nawait Hive.registerAdapter(PersonAdapter());\nawait Hive.openBox<Person>('peopleBox');\n\n// Usage\nvar box = Hive.box('settingsBox');\nbox.put('theme', 'dark');\nString theme = box.get('theme', defaultValue: 'light');\n\n// Custom object\nvar people = Hive.box<Person>('peopleBox');\npeople.add(Person(name: 'John', age: 30));\nList<Person> all = people.values.toList();"
+    },
+    {
+      "title": "SQflite (SQLite)",
+      "desc": "SQLite database for structured, relational data. Powerful SQL queries, transactions, joins.",
+      "points": [
+        "Add: flutter pub add sqflite path",
+        "Use for large datasets, complex queries",
+        "Supports migrations, foreign keys",
+        "Common with packages like drift (type-safe wrapper)"
+      ],
+      "code": "import 'package:sqflite/sqflite.dart';\nimport 'package:path/path.dart';\n\n// Open database\nvar databasesPath = await getDatabasesPath();\nString path = join(databasesPath, 'my.db');\nDatabase db = await openDatabase(path, version: 1,\n  onCreate: (db, version) async {\n    await db.execute('''\n      CREATE TABLE todos (\n        id INTEGER PRIMARY KEY,\n        title TEXT,\n        completed INTEGER\n      )\n    ''');\n  });\n\n// Insert\nawait db.insert('todos', {'title': 'Buy milk', 'completed': 0});\n\n// Query\nList<Map> list = await db.query('todos', where: 'completed = ?', whereArgs: [0]);\n\n// Update & Delete\nawait db.update('todos', {'completed': 1}, where: 'id = ?', whereArgs: [1]);\nawait db.delete('todos', where: 'id = ?', whereArgs: [1]);\n\nawait db.close();"
+    },
+    {
+      "title": "Flutter Secure Storage",
+      "desc": "Secure storage for sensitive key-value pairs. Uses platform-specific secure storage (Keychain on iOS, EncryptedSharedPreferences/Keystore on Android).",
+      "points": [
+        "Add: flutter pub add flutter_secure_storage",
+        "Perfect for auth tokens, API keys, passwords",
+        "Data encrypted at rest",
+        "Asynchronous API"
+      ],
+      "code": "import 'package:flutter_secure_storage/flutter_secure_storage.dart';\n\nfinal storage = FlutterSecureStorage();\n\n// Write\nawait storage.write(key: 'auth_token', value: 'your_jwt_token');\n\n// Read\nString? token = await storage.read(key: 'auth_token');\n\n// Delete\nawait storage.delete(key: 'auth_token');\n\n// Delete all\nawait storage.deleteAll();\n\n// Options (iOS/Android specific)\nawait storage.write(\n  key: 'token',\n  value: 'secret',\n  iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),\n  aOptions: AndroidOptions(encryptedSharedPreferences: true),\n);"
+    },
+    {
+      "title": "When to Use Which",
+      "points": [
+        "Simple flags/settings → SharedPreferences",
+        "Medium data, custom objects, offline cache → Hive",
+        "Large structured data, complex queries → SQflite/Drift",
+        "Sensitive data (tokens, passwords) → FlutterSecureStorage",
+        "Combine them: e.g., Hive for app data + SecureStorage for auth token"
+      ]
+    }
+  ]
+}
+  ]
+}

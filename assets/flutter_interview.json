@@ -1,0 +1,263 @@
+{
+  "title": "Flutter Interview Questions & Answers",
+  "version": "1.1",
+  "description": "A comprehensive collection of Flutter interview questions and answers, categorized by topic and difficulty level. Covers basics, Dart OOP concepts, widgets, state management, performance, and advanced topics. Expanded with more details, examples, and additional questions for 2026 interviews.",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Basic Questions",
+      "content": "Fundamental concepts every Flutter developer should know, including core Flutter principles and Dart basics.",
+      "subsections": [
+        {
+          "title": "Core Concepts",
+          "qa": [
+            {
+              "question": "What is Flutter?",
+              "answer": "Flutter is Google's open-source UI software development kit for building natively compiled applications for mobile (iOS and Android), web, desktop (Windows, macOS, Linux), and embedded devices from a single codebase. It uses the Dart programming language and its own rendering engine (Skia) to provide high-performance, customizable UIs. Flutter's key advantage is its widget-based architecture, where everything is a widget, enabling declarative UI building."
+            },
+            {
+              "question": "Why does Flutter use Dart?",
+              "answer": "Dart is chosen for Flutter because it's optimized for UI development with features like sound null safety, strong typing, and efficient garbage collection. It supports Just-In-Time (JIT) compilation for fast hot reload during development and Ahead-Of-Time (AOT) compilation for native performance in production. Dart's syntax is familiar to developers from languages like Java or JavaScript, and it excels in asynchronous programming with async/await."
+            },
+            {
+              "question": "Explain StatelessWidget vs StatefulWidget.",
+              "answer": "StatelessWidget: Represents parts of the UI that do not change dynamically (e.g., static text or icons). It's immutable, rebuilt only when external data changes, and is more performant due to fewer rebuilds.\nStatefulWidget: Manages mutable state that can change over time (e.g., counters or forms). It consists of a widget and a separate State class where state is held, and setState() triggers rebuilds. Always prefer StatelessWidget for optimization unless state is needed.\nExample: A Text widget is stateless; a Checkbox is stateful."
+            },
+            {
+              "question": "What is the widget tree, element tree, and render tree?",
+              "answer": "Widget Tree: A hierarchical structure of immutable widgets describing the UI configuration.\nElement Tree: Mutable objects created from widgets, managing lifecycle, state, and child elements.\nRender Tree: Composed of RenderObjects that handle layout, painting, and hit-testing for actual screen rendering.\nThese trees work together: Widgets configure Elements, which manage RenderObjects."
+            },
+            {
+              "question": "What is hot reload vs hot restart?",
+              "answer": "Hot Reload: Quickly injects code changes into the running app while preserving app state, ideal for UI tweaks (takes <1 second).\nHot Restart: Fully restarts the app, resetting state but reloading all code (useful for state or backend changes). Hot reload leverages Dart's JIT compiler."
+            },
+            {
+              "question": "What are the main building blocks of a Flutter app?",
+              "answer": "Widgets (UI elements), MaterialApp/CupertinoApp (app wrappers), Scaffold (basic layout), Navigator (routing), and pubspec.yaml (for dependencies and assets)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dart OOP Concepts",
+      "content": "Dart is an object-oriented language. Understanding OOP in Dart is crucial for Flutter development, as widgets and state are built on classes and inheritance.",
+      "subsections": [
+        {
+          "title": "OOP Fundamentals",
+          "qa": [
+            {
+              "question": "Explain classes and objects in Dart.",
+              "answer": "A class is a blueprint for creating objects, defining properties (fields) and behaviors (methods). Objects are instances of classes.\nExample: class Person { String name; Person(this.name); } var p = Person('Alice');"
+            },
+            {
+              "question": "What is inheritance in Dart?",
+              "answer": "Inheritance allows a class to inherit properties and methods from another class using 'extends'. Dart supports single inheritance.\nExample: class Employee extends Person { String role; Employee(String name, this.role) : super(name); }\nOverrides: Use @override for methods."
+            },
+            {
+              "question": "Describe mixins in Dart.",
+              "answer": "Mixins allow code reuse across classes without full inheritance, using 'with'. Useful for sharing functionality.\nExample: mixin Logger { void log(String msg) => print(msg); } class MyClass with Logger {}"
+            },
+            {
+              "question": "What are abstract classes and interfaces in Dart?",
+              "answer": "Abstract classes (using 'abstract') can't be instantiated and can have abstract methods (no body).\nExample: abstract class Shape { void draw(); }\nInterfaces: Dart uses classes as interfaces implicitly; implement with 'implements'.\nExample: class Circle implements Shape { void draw() => print('Circle'); }"
+            },
+            {
+              "question": "Explain constructors in Dart.",
+              "answer": "Constructors initialize objects. Types: Default (class name), Named (class.Name()), Factory (returns instance).\nExample: class Point { int x, y; Point(this.x, this.y); Point.origin() : x=0, y=0; }\nConst constructors for immutable objects: const Point(this.x, this.y);"
+            },
+            {
+              "question": "What is polymorphism in Dart?",
+              "answer": "Polymorphism allows objects of different classes to be treated as the same type via inheritance or interfaces.\nExample: Shape s = Circle(); s.draw(); // Calls Circle's draw."
+            },
+            {
+              "question": "What are getters and setters in Dart?",
+              "answer": "Getters retrieve values, setters modify them. Syntactic sugar for methods.\nExample: class Rect { int _width; int get width => _width; set width(int w) => _width = w > 0 ? w : 0; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Intermediate Questions",
+      "content": "Deeper dives into layouts, navigation, async programming, and common widgets.",
+      "subsections": [
+        {
+          "title": "Layouts & Widgets",
+          "qa": [
+            {
+              "question": "Explain Row, Column, and their alignment properties.",
+              "answer": "Row arranges children horizontally (main axis), Column vertically. Properties:\n- mainAxisAlignment: start, center, spaceBetween, spaceEvenly, spaceAround, end.\n- crossAxisAlignment: start, center, end, stretch, baseline.\nUse Expanded or Flexible for flexible sizing.\nExample: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Text('A'), Text('B')]);"
+            },
+            {
+              "question": "What is the difference between ListView and ListView.builder?",
+              "answer": "ListView constructs all children upfront, suitable for small fixed lists but inefficient for large ones.\nListView.builder lazily builds items as scrolled into view, using itemBuilder callback, ideal for dynamic or long lists to save memory and improve performance."
+            },
+            {
+              "question": "How do keys work in Flutter?",
+              "answer": "Keys uniquely identify widgets across builds, preserving state during tree changes (e.g., in lists).\nTypes: ValueKey (for simple values), ObjectKey (complex objects), UniqueKey (always unique), GlobalKey (access across app, e.g., for forms).\nWithout keys, Flutter may reuse elements incorrectly in animations or lists."
+            },
+            {
+              "question": "What is Stack widget and when to use it?",
+              "answer": "Stack overlaps children, allowing absolute/relative positioning with Positioned.\nUse for overlays, badges, or complex UIs like image with text on top.\nExample: Stack(children: [Container(color: Colors.blue), Positioned(top: 10, left: 10, child: Text('Overlay'))]);"
+            },
+            {
+              "question": "Explain Container widget.",
+              "answer": "Container is a box widget with decoration, padding, margin, constraints, and alignment. It's versatile for styling single children.\nExample: Container(padding: EdgeInsets.all(8), decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(10)), child: Text('Box'));"
+            }
+          ]
+        },
+        {
+          "title": "Navigation & Routing",
+          "qa": [
+            {
+              "question": "How does navigation work in Flutter?",
+              "answer": "Navigator maintains a stack of routes. Push adds a new screen, pop removes the top one. Use MaterialPageRoute for animated transitions.\nPass data: via constructor or arguments. Return data: with Navigator.pop(context, data);"
+            },
+            {
+              "question": "What are named routes?",
+              "answer": "Defined in MaterialApp.routes map for cleaner navigation.\nExample: routes: {'/second': (context) => SecondScreen()},\nNavigate: Navigator.pushNamed(context, '/second', arguments: 'data');\nUse onGenerateRoute for dynamic routes or guards."
+            },
+            {
+              "question": "How to handle deep linking in Flutter?",
+              "answer": "Use uni_links or flutter_deep_linking packages. Parse URLs in initState or onGenerateInitialRoutes to navigate to specific screens."
+            }
+          ]
+        },
+        {
+          "title": "Async Programming",
+          "qa": [
+            {
+              "question": "Explain Future vs Stream.",
+              "answer": "Future: Represents a single async computation (e.g., HTTP request), resolved once with value or error. Use await or then().\nStream: Sequence of async events (e.g., real-time data). Use StreamBuilder to rebuild UI on new data.\nExample: Future: http.get(); Stream: Firebase onValue."
+            },
+            {
+              "question": "How to handle errors in async code?",
+              "answer": "Use try-catch with async/await, or catchError() on Futures/Streams. For UI, use FutureBuilder/StreamBuilder with error handling in builder."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "State Management",
+      "content": "Essential for managing data flow in scalable apps. Know pros/cons of each approach.",
+      "subsections": [
+        {
+          "title": "Popular Solutions",
+          "qa": [
+            {
+              "question": "What are common state management options?",
+              "answer": "Local: setState().\nGlobal: Provider (simple, InheritedWidget-based), Riverpod (modern, context-independent), Bloc (reactive, event-driven), GetX (lightweight, with routing/DI), MobX (observable-based), Redux (predictable state container)."
+            },
+            {
+              "question": "Explain Provider.",
+              "answer": "Provider uses InheritedWidget to propagate data down the tree. Types: ChangeNotifierProvider for mutable state.\nPros: Simple, official. Cons: Context-dependent.\nExample: ChangeNotifierProvider(create: (_) => Model(), child: App()); Use context.watch() or Consumer to listen."
+            },
+            {
+              "question": "What is Riverpod and why prefer it?",
+              "answer": "Riverpod is an evolution of Provider, with global providers, no BuildContext needed, and better testability.\nPros: Compile-safe, auto-dispose, family modifiers.\nExample: final counter = StateProvider((ref) => 0); Use ref.watch(counter) in ConsumerWidget."
+            },
+            {
+              "question": "Describe Bloc pattern.",
+              "answer": "Bloc separates UI from business logic using events and states (Streams).\nPros: Testable, scalable for complex apps.\nExample: BlocProvider<CounterBloc>(create: (_) => CounterBloc()); Use BlocBuilder to rebuild on state changes, add events with context.read<Bloc>().add(Event())."
+            },
+            {
+              "question": "When to choose which state management?",
+              "answer": "Simple/local: setState.\nDependency injection/basic global: Provider.\nModern/no-context: Riverpod.\nEvent-driven/complex: Bloc.\nRapid dev with extras: GetX.\nStart with Riverpod for new projects due to flexibility."
+            },
+            {
+              "question": "How does setState work internally?",
+              "answer": "setState marks the State as dirty, scheduling a rebuild in the next frame, calling build() to refresh the subtree."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Performance Optimization",
+      "content": "Techniques to ensure smooth, efficient Flutter apps running at 60fps.",
+      "subsections": [
+        {
+          "title": "Key Techniques",
+          "qa": [
+            {
+              "question": "How to optimize Flutter app performance?",
+              "answer": "Use const constructors for immutable widgets to avoid rebuilds.\nLazy loading with ListView.builder.\nAvoid heavy operations in build() (use initState or Futures).\nSplit large widgets into smaller ones.\nUse RepaintBoundary for isolating expensive paints.\nProfile with DevTools to identify jank."
+            },
+            {
+              "question": "What tools for performance profiling?",
+              "answer": "Flutter DevTools: Timeline for frame analysis, CPU profiler, memory inspector.\nRun in profile mode: flutter run --profile.\nCheck for shader compilation jank on first run."
+            },
+            {
+              "question": "How to reduce app size?",
+              "answer": "Enable tree shaking (default in release).\nUse deferred loading for code splitting.\nOptimize assets: Compress images, use WebP/SVG.\nAndroid: --split-per-abi for smaller APKs.\niOS: Bitcode enabled."
+            },
+            {
+              "question": "What causes jank in Flutter?",
+              "answer": "Expensive builds (e.g., complex layouts), heavy computations on UI thread, large image decoding, or unnecessary rebuilds without keys."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Advanced Questions",
+      "content": "Topics for senior developers: architecture, testing, native integration, and emerging features.",
+      "subsections": [
+        {
+          "title": "Architecture & Best Practices",
+          "qa": [
+            {
+              "question": "Explain Flutter's rendering pipeline.",
+              "answer": "1. Widget tree built via build().\n2. Elements create/update RenderObjects.\n3. RenderObjects compute layout (constraints/box model).\n4. Painting: Composites layers.\n5. Engine (Skia/Impeller) renders to GPU.\nFrames aim for 16ms (60fps)."
+            },
+            {
+              "question": "How to integrate native code?",
+              "answer": "Use platform channels: MethodChannel for method calls between Dart and native (Java/Swift).\nEventChannel for streams, BasicMessageChannel for messages.\nFor type-safety, use Pigeon to generate code.\nExample: MethodChannel('battery').invokeMethod('getLevel');"
+            },
+            {
+              "question": "What is Impeller?",
+              "answer": "Impeller is Flutter's new rendering engine (phasing out Skia on some platforms). It compiles shaders at build time, reducing jank from runtime compilation, improving predictability and performance on iOS/Metal and Android/Vulkan."
+            },
+            {
+              "question": "How do you test Flutter apps?",
+              "answer": "Unit tests: Test Dart code (test package).\nWidget tests: Simulate UI interactions (flutter_test, find.byType()).\nIntegration tests: End-to-end on device/emulator (integration_test).\nGolden tests for UI snapshots.\nUse mockito for mocks."
+            },
+            {
+              "question": "Explain null safety in Dart.",
+              "answer": "Introduced in Dart 2.12, makes types non-nullable by default (? for nullable). Prevents null errors at runtime via compile-time checks.\nMigration: Use 'late' for lazy init, 'required' for params."
+            },
+            {
+              "question": "How to handle internationalization (i18n)?",
+              "answer": "Use intl package. Define strings in .arb files, generate code with flutter gen-l10n. Wrap app in Localizations.\nSupport locales via MaterialApp.supportedLocales."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Preparation Tips",
+      "content": "Strategies to ace Flutter interviews, including practice and resources.",
+      "subsections": [
+        {
+          "title": "Resources",
+          "points": [
+            "Official docs: flutter.dev (widget catalog, codelabs)",
+            "Flutter YouTube channel for tutorials",
+            "Pub.dev for exploring packages",
+            "Practice: Build apps like Todo (state mgmt), Weather (API), E-commerce (navigation)",
+            "Mock interviews: Explain concepts aloud, code on LeetCode/HackerRank with Dart",
+            "Stay updated: Follow Flutter blog, attend meetups, contribute to GitHub repos"
+          ]
+        }
+      ]
+    }
+  ]
+}
