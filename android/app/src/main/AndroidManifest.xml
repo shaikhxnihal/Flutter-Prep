@@ -42,4 +42,31 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+
+    <queries>
+  <queries>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="https" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="http" />
+  </intent>
+</queries>
+
+  <!-- For LinkedIn app deep link -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="linkedin" />
+  </intent>
+  <!-- For Instagram app deep link -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="instagram" />
+  </intent>
+</queries>
+
+<uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>

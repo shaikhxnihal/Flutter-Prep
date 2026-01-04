@@ -1,0 +1,333 @@
+{
+  "Beginner": [
+    {
+      "question": "What is Flutter?",
+      "options": ["An open-source backend framework", "An open-source UI toolkit for building natively compiled applications", "A programming language", "A database management system"],
+      "correct": "An open-source UI toolkit for building natively compiled applications"
+    },
+    {
+      "question": "Who developed Flutter?",
+      "options": ["Facebook", "Microsoft", "Google", "Apple"],
+      "correct": "Google"
+    },
+    {
+      "question": "Which programming language is used for Flutter development?",
+      "options": ["Java", "Kotlin", "Dart", "Swift"],
+      "correct": "Dart"
+    },
+    {
+      "question": "What command creates a new Flutter project?",
+      "options": ["flutter new project", "flutter create my_app", "flutter init", "new flutter app"],
+      "correct": "flutter create my_app"
+    },
+    {
+      "question": "Everything in Flutter is a ...",
+      "options": ["Function", "Class", "Widget", "Object"],
+      "correct": "Widget"
+    },
+    {
+      "question": "Which widget is used for a scrollable list?",
+      "options": ["Column", "Row", "ListView", "GridView"],
+      "correct": "ListView"
+    },
+    {
+      "question": "What are the two main types of widgets in Flutter?",
+      "options": ["Visible and Invisible", "Stateful and Stateless", "Layout and Input", "Basic and Advanced"],
+      "correct": "Stateful and Stateless"
+    },
+    {
+      "question": "Which widget changes dynamically based on user interaction?",
+      "options": ["StatelessWidget", "StatefulWidget", "Container", "Text"],
+      "correct": "StatefulWidget"
+    },
+    {
+      "question": "Examples of Stateless widgets include:",
+      "options": ["Text, Row, Column", "Form, TextField", "AnimatedBuilder", "StreamBuilder"],
+      "correct": "Text, Row, Column"
+    },
+    {
+      "question": "What widget provides a material design app bar?",
+      "options": ["TopBar", "Header", "AppBar", "TitleBar"],
+      "correct": "AppBar"
+    },
+    {
+      "question": "Which widget is used to add space between widgets?",
+      "options": ["Padding", "Margin", "SizedBox", "Spacer"],
+      "correct": "SizedBox"
+    },
+    {
+      "question": "The entry point of a Flutter app is the ... function.",
+      "options": ["start()", "run()", "main()", "init()"],
+      "correct": "main()"
+    },
+    {
+      "question": "What does runApp() do?",
+      "options": ["Starts the server", "Inflates the widget into the screen", "Compiles the code", "Loads assets"],
+      "correct": "Inflates the widget into the screen"
+    },
+    {
+      "question": "Which widget implements basic Material Design layout?",
+      "options": ["Material", "Scaffold", "Container", "Center"],
+      "correct": "Scaffold"
+    },
+    {
+      "question": "How do you display text in Flutter?",
+      "options": ["Display()", "ShowText()", "Text widget", "Label()"],
+      "correct": "Text widget"
+    },
+    {
+      "question": "Which widget arranges children in a row?",
+      "options": ["Column", "Row", "Stack", "ListView"],
+      "correct": "Row"
+    },
+    {
+      "question": "Which widget arranges children vertically?",
+      "options": ["Row", "Column", "Flex", "Wrap"],
+      "correct": "Column"
+    },
+    {
+      "question": "What is used to load images from the network?",
+      "options": ["Image.network()", "NetworkImage()", "AssetImage()", "Both A and B"],
+      "correct": "Both A and B"
+    },
+    {
+      "question": "pubspec.yaml is used for:",
+      "options": ["Code execution", "Dependencies and assets", "UI design", "State management"],
+      "correct": "Dependencies and assets"
+    },
+    {
+      "question": "Which build modes does Flutter have?",
+      "options": ["Only Debug", "Debug and Release", "Debug, Profile, Release", "Only Release"],
+      "correct": "Debug, Profile, Release"
+    },
+    {
+      "question": "What widget is used for user input text?",
+      "options": ["Text", "Input", "TextField", "FormField"],
+      "correct": "TextField"
+    },
+    {
+      "question": "Which widget overlays children?",
+      "options": ["Row", "Column", "Stack", "Grid"],
+      "correct": "Stack"
+    }
+  ],
+  "Advanced": [
+    {
+      "question": "What is the difference between StatelessWidget and StatefulWidget?",
+      "options": ["Stateless can have state, Stateful cannot", "Stateless is immutable, Stateful can change over time", "No difference", "Stateful is for layout only"],
+      "correct": "Stateless is immutable, Stateful can change over time"
+    },
+    {
+      "question": "How does Flutter achieve high performance?",
+      "options": ["Uses WebViews", "Compiles to native code with Skia engine", "Interprets Dart at runtime", "Uses React Native bridge"],
+      "correct": "Compiles to native code with Skia engine"
+    },
+    {
+      "question": "What is setState() used for?",
+      "options": ["To change global state", "To rebuild the widget with new state", "To navigate", "To load data"],
+      "correct": "To rebuild the widget with new state"
+    },
+    {
+      "question": "What is a Key in Flutter?",
+      "options": ["For encryption", "To preserve state in lists", "For styling", "For navigation"],
+      "correct": "To preserve state in lists"
+    },
+    {
+      "question": "Which state management is built-in for simple cases?",
+      "options": ["Provider", "Bloc", "setState", "Redux"],
+      "correct": "setState"
+    },
+    {
+      "question": "What is Provider commonly used for?",
+      "options": ["Animations", "State management", "Routing", "Testing"],
+      "correct": "State management"
+    },
+    {
+      "question": "What is an InheritedWidget?",
+      "options": ["For sharing data down the tree", "For animations", "For layouts", "For gestures"],
+      "correct": "For sharing data down the tree"
+    },
+    {
+      "question": "Difference between const and final in Dart?",
+      "options": ["Both compile-time", "const is compile-time, final is runtime", "No difference", "final is mutable"],
+      "correct": "const is compile-time, final is runtime"
+    },
+    {
+      "question": "What is the widget tree vs element tree?",
+      "options": ["Same thing", "Widget is config, Element is instance", "Element is config", "No difference"],
+      "correct": "Widget is config, Element is instance"
+    },
+    {
+      "question": "How to handle asynchronous operations in Flutter?",
+      "options": ["sync/await", "async/await with Futures", "Threads", "Callbacks only"],
+      "correct": "async/await with Futures"
+    },
+    {
+      "question": "What is Stream in Flutter?",
+      "options": ["For single value", "For sequence of asynchronous events", "For lists", "For navigation"],
+      "correct": "For sequence of asynchronous events"
+    },
+    {
+      "question": "What is Isolates in Dart?",
+      "options": ["For UI thread", "For concurrency without shared memory", "For state", "For widgets"],
+      "correct": "For concurrency without shared memory"
+    },
+    {
+      "question": "How to optimize ListView performance?",
+      "options": ["Use ListView only", "Use ListView.builder", "Load all items", "No optimization needed"],
+      "correct": "Use ListView.builder"
+    },
+    {
+      "question": "What is GestureDetector used for?",
+      "options": ["Layouts", "Detecting taps, drags etc.", "Animations", "State"],
+      "correct": "Detecting taps, drags etc."
+    },
+    {
+      "question": "Difference between Navigator.push and pushReplacement?",
+      "options": ["Same", "push adds new route, pushReplacement replaces", "push removes old", "No difference"],
+      "correct": "push adds new route, pushReplacement replaces"
+    },
+    {
+      "question": "What is ThemeData used for?",
+      "options": ["Only colors", "App-wide theming", "Local styling", "Animations"],
+      "correct": "App-wide theming"
+    },
+    {
+      "question": "How to make a widget reusable?",
+      "options": ["Copy paste", "Create custom widget class", "Use only built-in", "No way"],
+      "correct": "Create custom widget class"
+    },
+    {
+      "question": "What is Mixin in Dart?",
+      "options": ["For multiple inheritance", "For single inheritance", "For interfaces", "For abstracts"],
+      "correct": "For multiple inheritance"
+    },
+    {
+      "question": "What is the role of BuildContext?",
+      "options": ["Location in widget tree", "Only for building", "For state", "For navigation only"],
+      "correct": "Location in widget tree"
+    },
+    {
+      "question": "How to handle platform-specific code?",
+      "options": ["No way", "Platform channels", "Only Dart", "Conditional imports"],
+      "correct": "Platform channels"
+    },
+    {
+      "question": "What is hot reload?",
+      "options": ["Recompiles app", "Injects updated code while preserving state", "Restarts app", "Only for Android"],
+      "correct": "Injects updated code while preserving state"
+    },
+    {
+      "question": "What is the purpose of const constructors?",
+      "options": ["Runtime optimization", "Compile-time constants for performance", "No benefit", "For state"],
+      "correct": "Compile-time constants for performance"
+    }
+  ],
+  "Interview Prep": [
+    {
+      "question": "Explain the widget lifecycle in StatefulWidget.",
+      "options": ["createState only", "createState, initState, didUpdateWidget, build, dispose", "Only build", "Same as Stateless"],
+      "correct": "createState, initState, didUpdateWidget, build, dispose"
+    },
+    {
+      "question": "Why use keys in lists?",
+      "options": ["Styling", "To maintain state when list changes", "Performance always", "No need"],
+      "correct": "To maintain state when list changes"
+    },
+    {
+      "question": "What are RenderObjects?",
+      "options": ["Widgets", "Low-level objects for layout and painting", "Elements", "States"],
+      "correct": "Low-level objects for layout and painting"
+    },
+    {
+      "question": "Pros and cons of different state management (e.g., Provider vs Bloc)?",
+      "options": ["Provider simple, Bloc for complex streams", "Bloc simpler", "No difference", "Provider for streams"],
+      "correct": "Provider simple, Bloc for complex streams"
+    },
+    {
+      "question": "How does Flutter differ from React Native?",
+      "options": ["Same bridge", "Flutter compiles to native, no bridge", "Flutter uses JS", "React Native faster"],
+      "correct": "Flutter compiles to native, no bridge"
+    },
+    {
+      "question": "What is the BLoC pattern?",
+      "options": ["State management with streams", "Widget only", "Layout", "Animation"],
+      "correct": "State management with streams"
+    },
+    {
+      "question": "How to create custom animations?",
+      "options": ["Only Implicit", "AnimationController, Tween, AnimatedBuilder", "No custom", "Only Hero"],
+      "correct": "AnimationController, Tween, AnimatedBuilder"
+    },
+    {
+      "question": "What is Sliver in Flutter?",
+      "options": ["For scroll effects like app bars", "Basic list", "State", "Navigation"],
+      "correct": "For scroll effects like app bars"
+    },
+    {
+      "question": "How to handle deep linking?",
+      "options": ["Only Navigator", "uni_links or go_router", "No support", "Platform channels only"],
+      "correct": "uni_links or go_router"
+    },
+    {
+      "question": "Best practices for performance optimization?",
+      "options": ["Use const, ListView.builder, avoid rebuilds", "No need", "Always rebuild", "Use heavy widgets"],
+      "correct": "Use const, ListView.builder, avoid rebuilds"
+    },
+    {
+      "question": "What are Extensions in Dart?",
+      "options": ["Add methods to existing classes", "Inheritance", "Mixins only", "No such thing"],
+      "correct": "Add methods to existing classes"
+    },
+    {
+      "question": "Difference between Future and Stream?",
+      "options": ["Future single async value, Stream multiple", "Same", "Stream single", "Future multiple"],
+      "correct": "Future single async value, Stream multiple"
+    },
+    {
+      "question": "How to test Flutter apps?",
+      "options": ["Unit, Widget, Integration tests", "Only unit", "No testing", "Manual only"],
+      "correct": "Unit, Widget, Integration tests"
+    },
+    {
+      "question": "What is the role of Ticker?",
+      "options": ["For time", "For animation frames", "For state", "For navigation"],
+      "correct": "For animation frames"
+    },
+    {
+      "question": "How to implement custom painting?",
+      "options": ["CustomPaint widget", "Only images", "No way", "Canvas only"],
+      "correct": "CustomPaint widget"
+    },
+    {
+      "question": "What is isolate vs compute()?",
+      "options": ["compute for simple off-thread", "Same", "isolate for long-running", "Both A and C"],
+      "correct": "Both A and C"
+    },
+    {
+      "question": "Explain Golden tests.",
+      "options": ["For UI screenshot comparison", "Performance", "Unit", "Integration"],
+      "correct": "For UI screenshot comparison"
+    },
+    {
+      "question": "How to manage flavors in Flutter?",
+      "options": ["--flavor flag, separate dart files", "No support", "Only Android", "pubspec"],
+      "correct": "--flavor flag, separate dart files"
+    },
+    {
+      "question": "What is the difference between mainAxisAlignment and crossAxisAlignment?",
+      "options": ["In Row/Column for direction", "Same", "For Stack", "No difference"],
+      "correct": "In Row/Column for direction"
+    },
+    {
+      "question": "Why avoid setState in large apps?",
+      "options": ["Rebuilds entire widget", "No issue", "Faster", "Only for small"],
+      "correct": "Rebuilds entire widget"
+    },
+    {
+      "question": "What is Riverpod?",
+      "options": ["Advanced Provider alternative", "Basic state", "Animation", "Routing"],
+      "correct": "Advanced Provider alternative"
+    }
+  ]
+}

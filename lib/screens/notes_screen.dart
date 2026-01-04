@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_guide/core/filters/notes_filters.dart';
 import 'package:flutter_guide/core/loads/notes_loaders.dart';
+import 'package:flutter_guide/screens/flutter_quiz_screen.dart';
 import 'package:flutter_guide/utils/show_methods.dart';
+import 'package:flutter_guide/widgets/app_drawer.dart';
 import 'package:flutter_guide/widgets/error_widget.dart';
 import 'package:flutter_guide/widgets/home_header.dart';
 import 'package:flutter_guide/widgets/loading_widget.dart';
@@ -54,17 +56,18 @@ class _NotesScreenState extends State<NotesScreen> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFDFEFF),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 90,
-        title: const Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: HeaderTitle(),
-        ),
-        
-      ),
+      drawer: const AppDrawer(),
+     appBar: AppBar(
+  backgroundColor: Colors.white,
+  elevation: 0,
+  toolbarHeight: 90,
+  // Remove this line: automaticallyImplyLeading: false,
+  title: const Padding(
+    padding: EdgeInsets.only(top: 20),
+    child: HeaderTitle(),
+  ),
+  centerTitle: false, // Optional: align title to left if needed
+),
       body: Column(
         children: [
           // TabBar
@@ -158,17 +161,19 @@ class _NotesScreenState extends State<NotesScreen> with SingleTickerProviderStat
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   heroTag: 'new_note',
-      //   onPressed: () => _showAllNotes(context),
-      //   backgroundColor: const Color(0xFF667EEA),
-      //   foregroundColor: Colors.white,
-      //   elevation: 12,
-      //   hoverElevation: 16,
-      //   icon: const Icon(Icons.add_rounded, size: 28),
-      //   label: const Text('New Note', style: TextStyle(fontWeight: FontWeight.w600)),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'new_note',
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (ctx)=> FlutterQuizScreen()));
+        },
+        backgroundColor: const Color(0xFF667EEA),
+        foregroundColor: Colors.white,
+        elevation: 12,
+        hoverElevation: 16,
+        icon: const Icon(Icons.play_circle_outlined, size: 28),
+        label: const Text('Play Quiz', style: TextStyle(fontWeight: FontWeight.bold)),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
