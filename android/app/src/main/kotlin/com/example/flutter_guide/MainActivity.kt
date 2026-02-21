@@ -1,4 +1,4 @@
-package com.example.flutter_guide
+package com.miyanlabs.flutter_prep
 
 import io.flutter.embedding.android.FlutterActivity
 
